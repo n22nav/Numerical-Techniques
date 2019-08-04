@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+	{
+		float x[5]={1,2,3,4,5},y[5][5],a,b[5],c=1,d[5],p=0,e=0;
+		int i,j;
+
+		clrscr();
+		printf("enter the value for x\n");
+		scanf("%f",&a);
+		printf("enter 5 values for y\n");
+
+		for(i=0;i<5;i++)
+			for(j=i;j<5;j++)
+				{
+					if(i==0)
+						scanf("%f",&y[i][j]);
+					else
+						y[i][j]=y[i-1][j]-y[i-1][j-1];
+				}
+
+		p=(a-x[4])/(x[1]-x[0]);
+		b[0]=1;
+
+		for(i=1;i<5;i++)
+			{
+				c*=i;
+				b[i]=(b[i-1]*(p+i-1))/c;
+			}
+
+		for(i=0;i<5;i++)
+			{
+				if(i==0)
+					d[i]=y[i][4];
+				else
+					d[i]=b[i]*y[i][4];
+				e+=d[i];
+			}
+
+		printf("\n final value = %f",e);
+
+		getch();
+	}

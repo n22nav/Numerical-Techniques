@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+
+float x[10];
+float f()
+	{
+		float y,z;
+		y=1/(1+pow(z,2));
+		return y;
+	}
+
+
+void main()
+	{
+		float y,c=0,h=0,a,b,n;
+		int i;
+
+		clrscr();
+		printf("enter value for a,b, and n\n");
+		scanf("%f%f%f",&a,&b,&n);
+
+		h=(b-a)/n;
+
+		for(i=0;i<=n;i++)
+			x[i]=a+(i*h);
+
+		for(i=0;i<=n;i++)
+			{
+				if(i==0 || i==n)
+					c+=f(x[i]);
+				else
+					{
+						if(i%3==0)
+							c+=2*f(x[i]);
+						else
+							c+=3*f(x[i]);
+					}
+			}
+
+		y=h*c*3/8;
+		printf("\n%f",y);
+
+		getch();
+
+	}

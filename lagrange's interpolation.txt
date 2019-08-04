@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+	{
+		int x[5]={1,3,6,7,9}, y[5]={3,5,12,18,23},i,j;
+		float b[5]={1,1,1,1,1},c[5]={1,1,1,1,1},d=0,a;
+
+		clrscr();
+		printf("enter the value for x");
+		scanf("%f",&a);
+
+		for(i=0;i<5;i++)
+			{
+				for(j=0;j<5;j++)
+					if(j!=i)
+						{
+							b[i]*=a-x[j];
+							c[i]*=x[i]-x[j];
+						}
+				d+=(b[i]*y[i])/c[i];
+			}
+		printf("\n%f",d);
+		getch();
+	}
+
